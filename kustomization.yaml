@@ -1,0 +1,23 @@
+#namespace: my-app
+
+resources:
+  - resources.yaml
+
+patches:
+  - target:
+      kind: Deployment
+    patch: |-
+      - op: add
+        path: /spec/template/spec/serviceAccount
+        value: anyuid
+      - op: add
+        path: /spec/template/spec/serviceAccountName
+        value: anyuid
+
+#  - target:
+#      kind: Deployment
+#    patch: |-
+#      - op: add
+#        path: /spec/template/spec/securityContext
+#        value: 
+#          runAsUser: 1001120000
